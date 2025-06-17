@@ -8,9 +8,15 @@ function sortear(){
 
     for(let i = 0; i < quantidade; i++){
         numero = obterNumeroAleatorio(de, ate);
+        while(sorteados.includes(numero)){
+            numero = obterNumeroAleatorio(de, ate);
+        }
         sorteados.push(numero);
+        sorteados.sort((a,b) => a -b);
     }
 
+    let resultado = document.getElementById("resultado");
+    sorteados.length == 1 ? resultado.innerHTML = `<label class="texto__paragrafo">Número sorteado: ${sorteados} </label>` : resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados} </label>`;
 }
 
 function obterNumeroAleatorio(minimo, maximo){
@@ -19,3 +25,7 @@ function obterNumeroAleatorio(minimo, maximo){
 
 
 
+
+function reiniciar(){
+
+}
