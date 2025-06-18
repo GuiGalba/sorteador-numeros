@@ -8,6 +8,18 @@ function sortear(){
     let sorteados = [];
     let numero;
 
+    if(de >= ate){
+        alert("Você não inseriu os dados de forma correta. O número mínimo é maior que o número máximo.");
+        reiniciar();
+        return;
+    }
+
+    if(quantidade > (ate - de + 1)){
+        alert("A quantidade informada de números a serem sorteados é inválida. Forneça um intervalo maior.")
+        reiniciar();
+        return;
+    }
+
     for(let i = 0; i < quantidade; i++){
         numero = obterNumeroAleatorio(de, ate);
         while(sorteados.includes(numero)){
